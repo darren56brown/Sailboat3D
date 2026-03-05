@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dfuo8imiklpa7"]
+
+[ext_resource type="PackedScene" uid="uid://c6ygj1s7jyhrl" path="res://boat.tscn" id="1_f3sb7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+glow_enabled = true
+glow_bloom = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fj7yv"]
+size = Vector2(200, 200)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
+albedo_color = Color(0.67263305, 0.827222, 1, 1)
+roughness = 0.1
+
+[node name="World" type="Node3D" unique_id=1287609174]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1130227223]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, -5, 0, 20)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2020853842]
+environment = SubResource("Environment_tlwt5")
+
+[node name="Ocean" type="MeshInstance3D" parent="." unique_id=2032328129]
+mesh = SubResource("PlaneMesh_fj7yv")
+surface_material_override/0 = SubResource("StandardMaterial3D_tlwt5")
+
+[node name="Cliffs" type="StaticBody3D" parent="." unique_id=1006625972]
+
+[node name="Boat" parent="." unique_id=2067055431 instance=ExtResource("1_f3sb7")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=508459560]
+transform = Transform3D(-3.090862e-08, 0.7071068, -0.70710677, -1, -4.3711392e-08, 0, -3.090862e-08, 0.7071068, 0.70710677, -15, 0, 15)

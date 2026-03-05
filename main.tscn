@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cyg63kfs4lhf8"]
+
+[ext_resource type="PackedScene" uid="uid://dfuo8imiklpa7" path="res://world.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=524008474]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1475395023]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1793883994]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="World" parent="SubViewportContainer/SubViewport" unique_id=1287609174 instance=ExtResource("1_ig7tw")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=976975942]
+
+[node name="UI Root" type="Control" parent="HUD" unique_id=1992301345]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
